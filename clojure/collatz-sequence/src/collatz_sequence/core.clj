@@ -20,10 +20,14 @@
         (odd-collatz-number n))
       (inc sequence-length)))))
 
-;; 837799 -> 525
+(defn- format-element
+  [element]
+  [(inc(first element)) (second element)])
+
 (defn -main
   []
   (->>
    (map calculate-sequence (range 1 1000000))
    (map-indexed vector)
-   (apply max-key second)))
+   (apply max-key second)
+   (format-element)))
