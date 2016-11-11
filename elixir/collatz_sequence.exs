@@ -2,7 +2,8 @@ defmodule CollatzSequence do
   def calculate_longest_sequence do
     Enum.map(1..1000000, fn (n) -> calculate_sequence n end)
     |> longest_sequence_index
-    |> +(1)
+    |> Kernel.+(1)
+    |> IO.puts
   end
 
   defp longest_sequence_index(sequence_lengths) do
@@ -26,5 +27,6 @@ defmodule CollatzSequence do
   defp calculate(n) do
     (n * 3) + 1
   end
-
 end
+
+CollatzSequence.calculate_longest_sequence
